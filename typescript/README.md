@@ -43,11 +43,13 @@ pnpm exec ts-node typescript/index.ts modules/client --format
 9. Commit changes
 
 
-
-
-
-
-
+## Export-equals transformation
+1. Run transfromation:
+```bash
+pnpm exec ts-node typescript/export-equals.ts modules/ --format
+```
+2. Discard export-equals changes in `modules/client/webpack-config-helpers` and `modules/common/common-eslint-config`
+3. Revert `export=` for `modules/deployments/*/config-private/src/config-sequelize/index.ts`
 
 ## Primary entry point (pep) transformation
 
@@ -60,12 +62,3 @@ NOTE: Command for testing:
 ```bash
 pnpm exec ts-node typescript/pep.ts typescript/data/requiresInHeaderStub.tsx --format typescript/data/stub_node_modules
 ```
-## Export-equals transformation
-1. Run transfromation:
-```bash
-pnpm exec ts-node typescript/export-equals.ts modules/ --format
-```
-2. Discard export-equals changes in `modules/client/webpack-config-helpers` and `modules/common/common-eslint-config`
-3. Revert `export=` for `modules/deployments/*/config-private/src/config-sequelize/index.ts`
-
-
